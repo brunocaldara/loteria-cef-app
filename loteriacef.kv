@@ -1,0 +1,63 @@
+#:kivy 2.2.1
+<MenuScreen>:
+    name: 'menu_screen'
+    GridLayout:
+        #cols: 1
+        rows:2
+        #orientation: 'vertical'
+        name: 'layout_menu_screen'
+        spacing: 10
+        padding: 10
+        Image:
+            source: 'assets/img/logo.png'
+        GridLayout:
+            cols: 2
+            #orientation: 'horizontal'
+            spacing: 10
+            padding: 10
+            size_hint: 0.1, 0.2
+            MDRoundFlatIconButton:
+                id: 'bt_resultados'
+                text: 'Resultados'
+                text_color: 'black' #app.theme_cls.primary_color
+                icon: 'search-web'
+                icon_size: "64sp"
+                icon_color: 'black' #app.theme_cls.primary_color
+                size_hint_y: None
+                valign: 'center'
+                halign: 'center'
+                line_color: 'black'
+                size_hint: 0.1, 0.1
+                on_release: root.manager.current = 'resultados_screen'
+            MDRoundFlatIconButton:
+                id: 'bt_contagem'
+                text: 'Contagem Números'
+                text_color: 'black' #app.theme_cls.primary_color
+                icon: 'format-list-numbered'
+                icon_size: "64sp"
+                icon_color: 'black' #app.theme_cls.primary_color
+                #size_hint_x: None
+                valign: 'center'
+                halign: 'center'
+                line_color: 'black'                
+                size_hint: 0.1, 0.2
+                on_release: root.manager.current = 'contagem_numeros_screen'
+
+<ResultadosScreen>:
+    name: 'resultados_screen'
+    BoxLayout:
+        name: 'layout_menu_screen'
+        orientation: 'vertical'
+        MDIconButton:
+            id: 'bt_ultimo_resultado'
+            text: 'Último resultado' 
+            on_release: app.bt_ultimo_resultado_click()
+
+
+<ContagemNumerosScreen>:
+    name: 'contagem_numeros_screen'
+    BoxLayout:
+        name: 'layout_menu_screen'
+        orientation: 'vertical'
+        Label:
+            text: 'Contagem'                    
