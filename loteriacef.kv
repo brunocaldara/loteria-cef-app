@@ -52,18 +52,104 @@
             background_color: app.primary_color
             ActionView:
                 ActionPrevious:
-                    title: 'Resultados'
+                    title: ''
                     app_icon: ''
                     with_previous: False
                     color: app.secundary_color
                 ActionButton:
+                    text: 'Buscar'
+                    color: app.secundary_color
+                    on_release: app.bt_ultimo_resultado_click()
+                ActionSeparator:
+                ActionButton:
                     text: 'Voltar'
                     color: app.secundary_color
                     on_release: root.manager.current = 'menu_screen'
-        MDIconButton:
-            id: 'bt_ultimo_resultado'
-            text: 'Último resultado' 
-            on_release: app.bt_ultimo_resultado_click()
+        MDScrollView:
+            #md_bg_color: app.secundary_color
+            GridLayout:
+                cols: 2
+                rows: 8
+                MDLabel:
+                    id: 'lb_sorteio'
+                    text: 'Sorteio:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_sorteio'
+                    text: ''
+                    readonly: True 
+                    font_size: 20
+                MDLabel:
+                    id: 'lb_data'
+                    text: 'Data:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_data'
+                    text: ''       
+                    readonly: True  
+                    font_size: 20        
+                MDLabel:
+                    id: 'lb_dezena1'
+                    text: '1ª Dezena:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_dezena1'
+                    text: ''      
+                    readonly: True            
+                    font_size: 20
+                MDLabel:
+                    id: 'lb_dezena2'
+                    text: '2ª Dezena:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_dezena2'
+                    text: ''       
+                    readonly: True 
+                    font_size: 20
+                MDLabel:
+                    id: 'lb_dezena3'
+                    text: '3ª Dezena:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_dezena3'
+                    text: '' 
+                    readonly: True 
+                    font_size: 20
+                MDLabel:
+                    id: 'lb_dezena4'
+                    text: '4ª Dezena:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_dezena4'
+                    text: ''       
+                    readonly: True  
+                    font_size: 20 
+                MDLabel:
+                    id: 'lb_dezena5'
+                    text: '5ª Dezena:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_dezena5'
+                    text: ''       
+                    readonly: True  
+                    font_size: 20         
+                MDLabel:
+                    id: 'lb_dezena6'
+                    text: '6ª Dezena:'
+                    font_size: 20
+                    padding: 10
+                MDTextField:
+                    id: 'txt_dezena6'
+                    text: ''          
+                    readonly: True  
+                    font_size: 20      
 
 <ContagemNumerosScreen>:
     name: 'contagem_numeros_screen'

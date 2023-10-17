@@ -49,6 +49,7 @@ class LoteriaCefApp(MDApp):
         r = requests.get(f'{self.API_BASE_URL}/{self.API_VERSION}/megasena/resultados?sorteio=ultimo',
                          headers={'Accept': 'application/json', 'Authorization': f'Bearer {self.API_JWT_TOKEN}'})
         print(r.json())
+        print(f'status code: {r.status_code}')
 
 
 if __name__ == '__main__':
