@@ -241,9 +241,9 @@
 
 <ResultadosScreen>:
     name: 'resultados_screen'
-    BoxLayout:
+    GridLayout:
         name: 'layout_resultados_screen'
-        orientation: 'vertical'
+        rows: 3
         ActionBar:
             background_color: app.primary_color
             ActionView:
@@ -253,91 +253,178 @@
                     with_previous: False
                     color: app.secundary_color
                 ActionButton:
-                    text: 'Buscar'
-                    color: app.secundary_color
-                    on_release: app.bt_resultado_click()
-                ActionSeparator:
-                ActionButton:
                     text: 'Voltar'
                     color: app.secundary_color
                     on_release: root.manager.current = 'menu_screen'
+        GridLayout:
+            cols: 3
+            rows: 1
+            size_hint: 1, .2
+            MDLabel:
+                id: lbl_resultados_sorteio
+                text: 'Sorteio:'
+                font_size: 24
+                color: app.primary_color
+                size_hint: .2, 1
+                padding: '20dp'    
+            MDTextField:
+                id: txt_resultados_sorteio
+                label_id: 'lbl_resultados_sorteio'
+                text: ''          
+                font_size: 32
+                halign: 'center'
+                size_hint: .5, 1
+                input_filter: 'int'
+                required: True
+                helper_text: 'Informe o sorteio'
+                helper_text_mode: 'on_error'
+                icon_left_color_normal: app.primary_color
+                icon_left_color_focus: app.primary_color
+                line_color_normal: app.primary_color
+                line_color_focus: app.primary_color
+                text_color_normal: app.primary_color
+                text_color_focus: app.primary_color
+            MDIconButton:
+                icon: 'search-web'
+                icon_size: '64sp'
+                theme_icon_color: 'Custom'
+                icon_color: app.primary_color
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: .1, 1
+                on_release: root.btn_resultados_pesquisar_click()
         MDScrollView:
-            #md_bg_color: app.secundary_color
             GridLayout:
                 cols: 2
                 rows: 8
-                MDLabel:
-                    text: 'Sorteio:'
-                    font_size: 20
-                    padding: 10
-                MDTextField:
-                    id: resultados_sorteio
-                    text: ''
-                    readonly: True 
-                    font_size: 20
+                size_hint_y: None
+                height: self.minimum_height                
+                padding: '20dp'                
                 MDLabel:
                     text: 'Data:'
                     font_size: 20
                     padding: 10
+                    color: app.primary_color
                 MDTextField:
                     id: resultados_data
                     text: ''       
                     readonly: True  
-                    font_size: 20        
+                    font_size: 20   
+                    halign: 'center'   
+                    icon_left: "calendar-range"
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '1ª Dezena:'
                     font_size: 20
                     padding: 10
+                    color: app.primary_color
                 MDTextField:
                     id: resultados_dezena1
                     text: ''      
                     readonly: True            
                     font_size: 20
+                    halign: 'center'
+                    icon_left: 'numeric-1-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '2ª Dezena:'
                     font_size: 20
                     padding: 10
+                    color: app.primary_color
                 MDTextField:
                     id: resultados_dezena2
                     text: ''       
                     readonly: True 
                     font_size: 20
+                    halign: 'center'
+                    icon_left: 'numeric-2-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '3ª Dezena:'
                     font_size: 20
                     padding: 10
+                    color: app.primary_color
                 MDTextField:
                     id: resultados_dezena3
                     text: '' 
                     readonly: True 
                     font_size: 20
+                    halign: 'center'
+                    icon_left: 'numeric-3-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '4ª Dezena:'
                     font_size: 20
                     padding: 10
+                    color: app.primary_color
                 MDTextField:
                     id: resultados_dezena4
                     text: ''       
                     readonly: True  
-                    font_size: 20 
+                    font_size: 20
+                    halign: 'center'
+                    icon_left: 'numeric-4-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color                     
                 MDLabel:
                     text: '5ª Dezena:'
                     font_size: 20
                     padding: 10
+                    color: app.primary_color
                 MDTextField:
                     id: resultados_dezena5
                     text: ''       
                     readonly: True  
-                    font_size: 20         
+                    font_size: 20
+                    halign: 'center'
+                    icon_left: 'numeric-5-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '6ª Dezena:'
                     font_size: 20
                     padding: 10
+                    color: app.primary_color
                 MDTextField:
                     id: resultados_dezena6
                     text: ''          
                     readonly: True  
-                    font_size: 20      
+                    font_size: 20
+                    halign: 'center'
+                    icon_left: 'numeric-6-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color                     
 
 <ContagemNumerosScreen>:
     name: 'contagem_numeros_screen'

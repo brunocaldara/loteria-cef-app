@@ -5,6 +5,7 @@ from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.textfield import MDTextField
+from kivymd.toast import toast
 
 load_dotenv()
 
@@ -67,7 +68,20 @@ class UltimoResultadoScreen(MDScreen):
 
 
 class ResultadosScreen(MDScreen):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(ResultadosScreen, self).__init__(*args, **kwargs)
+
+    def on_enter(self):
+        self.ids.txt_resultados_sorteio.text = '0'
+        # Forçar pintar os inputs
+        self.ids.txt_resultados_sorteio.focus = True
+        self.ids.txt_resultados_sorteio.focus = False
+
+    def btn_resultados_pesquisar_click(self):
+        if self.ids.txt_resultados_sorteio.text is not '':
+            toast("tem valor ")
+        else:
+            toast("vazio")
 
 
 class ContagemNumerosScreen(MDScreen):
