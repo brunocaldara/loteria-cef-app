@@ -2,20 +2,32 @@
 <MenuScreen>:
     name: 'menu_screen'
     BoxLayout:
-        #rows:2
         orientation: 'vertical'
         name: 'layout_menu_screen'
         spacing: 10
         padding: 10
         Image:
             source: 'assets/img/logo.png'
-            size_hint: 1, 0.7
+            size_hint: 1, 0.5
         BoxLayout:
-            #cols: 2
-            orientation: 'horizontal'
+            orientation: 'vertical'
             spacing: 10
             padding: 10
-            size_hint: 1, 0.3
+            size_hint: 1, 0.5
+            MDRoundFlatIconButton:
+                id: 'bt_ultimo_resultado'
+                text: 'Último Resultado'
+                text_color: app.primary_color
+                icon: 'magnify'
+                icon_size: "64sp"
+                icon_color: app.secundary_color #app.theme_cls.primary_color
+                valign: 'center'
+                halign: 'center'
+                line_color: app.primary_color
+                size_hint: 0.4, 0.3
+                font_size: 20
+                pos_hint: {'center_x':0.5, 'center_y':0.5}
+                on_release: root.manager.current = 'ultimo_resultado_screen'            
             MDRoundFlatIconButton:
                 id: 'bt_resultados'
                 text: 'Resultados'
@@ -26,8 +38,9 @@
                 valign: 'center'
                 halign: 'center'
                 line_color: app.primary_color
-                size_hint: 0.5, 0.4
+                size_hint: 0.4, 0.3
                 font_size: 20
+                pos_hint: {'center_x':0.5, 'center_y':0.5}
                 on_release: root.manager.current = 'resultados_screen'
             MDRoundFlatIconButton:
                 id: 'bt_contagem'
@@ -39,9 +52,192 @@
                 valign: 'center'
                 halign: 'center'
                 line_color: app.primary_color                
-                size_hint: 0.5, 0.4
+                size_hint: 0.4, 0.3
                 font_size: 20
+                pos_hint: {'center_x':0.5, 'center_y':0.5}
                 on_release: root.manager.current = 'contagem_numeros_screen'
+
+<UltimoResultadoScreen>:
+    name: 'ultimo_resultado_screen'
+    GridLayout:
+        name: 'layout_ultimo_resultado_screen'
+        rows: 2
+        ActionBar:
+            background_color: app.primary_color
+            ActionView:
+                ActionPrevious:
+                    title: ''
+                    app_icon: ''
+                    with_previous: False
+                    color: app.secundary_color
+                ActionButton:
+                    text: 'Buscar'
+                    color: app.secundary_color
+                    on_release: root.btn_ultimo_resultado_click()
+                ActionSeparator:
+                ActionButton:
+                    text: 'Voltar'
+                    color: app.secundary_color
+                    on_release: root.manager.current = 'menu_screen'
+        MDScrollView:
+            GridLayout:
+                cols: 2
+                rows: 8
+                size_hint_y: None
+                height: self.minimum_height                
+                padding: '20dp'
+                MDLabel:
+                    id: lbl_ultimo_resultado_sorteio
+                    text: 'Sorteio:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_sorteio
+                    label_id: 'lbl_ultimo_resultado_sorteio'
+                    text: ''
+                    readonly: True 
+                    font_size: 32
+                    halign: 'center'
+                    icon_left: "numeric"
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
+                MDLabel:
+                    id: lbl_ultimo_resultado_data
+                    text: 'Data:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_data
+                    label_id: 'lbl_ultimo_resultado_data'
+                    text: ''       
+                    readonly: True  
+                    font_size: 32
+                    halign: 'center'   
+                    icon_left: "calendar-range"
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
+                MDLabel:
+                    id: lbl_ultimo_resultado_dezena1
+                    text: '1ª Dezena:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_dezena1
+                    label_id: 'lbl_ultimo_resultado_dezena1'
+                    text: ''      
+                    readonly: True            
+                    font_size: 32
+                    halign: 'center'
+                    icon_left: 'numeric-1-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
+                MDLabel:
+                    id: lbl_ultimo_resultado_dezena2
+                    text: '2ª Dezena:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_dezena2
+                    label_id: 'lbl_ultimo_resultado_dezena2'
+                    text: ''       
+                    readonly: True 
+                    font_size: 32
+                    halign: 'center'
+                    icon_left: 'numeric-2-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
+                MDLabel:
+                    id: lbl_ultimo_resultado_dezena3
+                    text: '3ª Dezena:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_dezena3
+                    label_id: 'lbl_ultimo_resultado_dezena3'
+                    text: '' 
+                    readonly: True 
+                    font_size: 32
+                    halign: 'center'
+                    icon_left: 'numeric-3-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
+                MDLabel:
+                    id: lbl_ultimo_resultado_dezena4
+                    text: '4ª Dezena:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_dezena4
+                    label_id: 'lbl_ultimo_resultado_dezena4'
+                    text: ''       
+                    readonly: True  
+                    font_size: 32
+                    halign: 'center'
+                    icon_left: 'numeric-4-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
+                MDLabel:
+                    id: lbl_ultimo_resultado_dezena5
+                    text: '5ª Dezena:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_dezena5
+                    label_id: 'lbl_ultimo_resultado_dezena5'
+                    text: ''       
+                    readonly: True  
+                    font_size: 32
+                    halign: 'center'     
+                    icon_left: 'numeric-5-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
+                MDLabel:
+                    id: lbl_ultimo_resultado_dezena6
+                    text: '6ª Dezena:'
+                    font_size: 24
+                    color: app.primary_color
+                MDTextField:
+                    id: txt_ultimo_resultado_dezena6
+                    label_id: 'lbl_ultimo_resultado_dezena6'
+                    text: ''          
+                    readonly: True  
+                    font_size: 32
+                    halign: 'center'
+                    icon_left: 'numeric-6-box-multiple-outline'
+                    icon_left_color_normal: app.primary_color
+                    icon_left_color_focus: app.secundary_color
+                    line_color_normal: app.primary_color
+                    line_color_focus: app.secundary_color
+                    text_color_normal: app.primary_color
+                    text_color_focus: app.secundary_color
 
 <ResultadosScreen>:
     name: 'resultados_screen'
@@ -59,7 +255,7 @@
                 ActionButton:
                     text: 'Buscar'
                     color: app.secundary_color
-                    on_release: app.bt_ultimo_resultado_click()
+                    on_release: app.bt_resultado_click()
                 ActionSeparator:
                 ActionButton:
                     text: 'Voltar'
@@ -71,82 +267,74 @@
                 cols: 2
                 rows: 8
                 MDLabel:
-                    id: 'lb_sorteio'
                     text: 'Sorteio:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_sorteio'
+                    id: resultados_sorteio
                     text: ''
                     readonly: True 
                     font_size: 20
                 MDLabel:
-                    id: 'lb_data'
                     text: 'Data:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_data'
+                    id: resultados_data
                     text: ''       
                     readonly: True  
                     font_size: 20        
                 MDLabel:
-                    id: 'lb_dezena1'
                     text: '1ª Dezena:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_dezena1'
+                    id: resultados_dezena1
                     text: ''      
                     readonly: True            
                     font_size: 20
                 MDLabel:
-                    id: 'lb_dezena2'
                     text: '2ª Dezena:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_dezena2'
+                    id: resultados_dezena2
                     text: ''       
                     readonly: True 
                     font_size: 20
                 MDLabel:
-                    id: 'lb_dezena3'
                     text: '3ª Dezena:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_dezena3'
+                    id: resultados_dezena3
                     text: '' 
                     readonly: True 
                     font_size: 20
                 MDLabel:
-                    id: 'lb_dezena4'
                     text: '4ª Dezena:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_dezena4'
+                    id: resultados_dezena4
                     text: ''       
                     readonly: True  
                     font_size: 20 
                 MDLabel:
-                    id: 'lb_dezena5'
                     text: '5ª Dezena:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_dezena5'
+                    id: resultados_dezena5
                     text: ''       
                     readonly: True  
                     font_size: 20         
                 MDLabel:
-                    id: 'lb_dezena6'
                     text: '6ª Dezena:'
                     font_size: 20
                     padding: 10
                 MDTextField:
-                    id: 'txt_dezena6'
+                    id: resultados_dezena6
                     text: ''          
                     readonly: True  
                     font_size: 20      
