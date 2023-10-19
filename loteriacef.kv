@@ -257,7 +257,7 @@
                     color: app.secundary_color
                     on_release: root.manager.current = 'menu_screen'
         GridLayout:
-            cols: 3
+            cols: 4
             rows: 1
             size_hint: 1, .2
             MDLabel:
@@ -292,6 +292,14 @@
                 pos_hint: {"center_x": .5, "center_y": .5}
                 size_hint: .1, 1
                 on_release: root.btn_resultados_pesquisar_click()
+            MDIconButton:
+                icon: 'eraser'
+                icon_size: '64sp'
+                theme_icon_color: 'Custom'
+                icon_color: app.primary_color
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: .1, 1
+                on_release: root.btn_resultados_limpar_click()
         MDScrollView:
             GridLayout:
                 cols: 2
@@ -301,14 +309,14 @@
                 padding: '20dp'                
                 MDLabel:
                     text: 'Data:'
-                    font_size: 20
+                    font_size: 24
                     padding: 10
                     color: app.primary_color
                 MDTextField:
-                    id: resultados_data
+                    id: txt_resultados_data
                     text: ''       
                     readonly: True  
-                    font_size: 20   
+                    font_size: 32
                     halign: 'center'   
                     icon_left: "calendar-range"
                     icon_left_color_normal: app.primary_color
@@ -319,14 +327,14 @@
                     text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '1ª Dezena:'
-                    font_size: 20
+                    font_size: 24
                     padding: 10
                     color: app.primary_color
                 MDTextField:
-                    id: resultados_dezena1
+                    id: txt_resultados_dezena1
                     text: ''      
                     readonly: True            
-                    font_size: 20
+                    font_size: 32
                     halign: 'center'
                     icon_left: 'numeric-1-box-multiple-outline'
                     icon_left_color_normal: app.primary_color
@@ -337,14 +345,14 @@
                     text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '2ª Dezena:'
-                    font_size: 20
+                    font_size: 24
                     padding: 10
                     color: app.primary_color
                 MDTextField:
-                    id: resultados_dezena2
+                    id: txt_resultados_dezena2
                     text: ''       
                     readonly: True 
-                    font_size: 20
+                    font_size: 32
                     halign: 'center'
                     icon_left: 'numeric-2-box-multiple-outline'
                     icon_left_color_normal: app.primary_color
@@ -355,14 +363,14 @@
                     text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '3ª Dezena:'
-                    font_size: 20
+                    font_size: 24
                     padding: 10
                     color: app.primary_color
                 MDTextField:
-                    id: resultados_dezena3
+                    id: txt_resultados_dezena3
                     text: '' 
                     readonly: True 
-                    font_size: 20
+                    font_size: 32
                     halign: 'center'
                     icon_left: 'numeric-3-box-multiple-outline'
                     icon_left_color_normal: app.primary_color
@@ -373,14 +381,14 @@
                     text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '4ª Dezena:'
-                    font_size: 20
+                    font_size: 24
                     padding: 10
                     color: app.primary_color
                 MDTextField:
-                    id: resultados_dezena4
+                    id: txt_resultados_dezena4
                     text: ''       
                     readonly: True  
-                    font_size: 20
+                    font_size: 32
                     halign: 'center'
                     icon_left: 'numeric-4-box-multiple-outline'
                     icon_left_color_normal: app.primary_color
@@ -391,14 +399,14 @@
                     text_color_focus: app.secundary_color                     
                 MDLabel:
                     text: '5ª Dezena:'
-                    font_size: 20
+                    font_size: 24
                     padding: 10
                     color: app.primary_color
                 MDTextField:
-                    id: resultados_dezena5
+                    id: txt_resultados_dezena5
                     text: ''       
                     readonly: True  
-                    font_size: 20
+                    font_size: 32
                     halign: 'center'
                     icon_left: 'numeric-5-box-multiple-outline'
                     icon_left_color_normal: app.primary_color
@@ -409,14 +417,14 @@
                     text_color_focus: app.secundary_color                    
                 MDLabel:
                     text: '6ª Dezena:'
-                    font_size: 20
+                    font_size: 24
                     padding: 10
                     color: app.primary_color
                 MDTextField:
-                    id: resultados_dezena6
+                    id: txt_resultados_dezena6
                     text: ''          
                     readonly: True  
-                    font_size: 20
+                    font_size: 32
                     halign: 'center'
                     icon_left: 'numeric-6-box-multiple-outline'
                     icon_left_color_normal: app.primary_color
